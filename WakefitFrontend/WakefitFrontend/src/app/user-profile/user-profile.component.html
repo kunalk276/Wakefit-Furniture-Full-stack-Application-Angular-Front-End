@@ -1,0 +1,76 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h2>User Profile</h2>
+          <small class="text-muted">Update your profile information</small>
+        </div>
+        <div class="card-body">
+          <form *ngIf="user" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" id="username" [(ngModel)]="user.userName" name="username" class="form-control">
+              <small class="text-muted">Your username will be used to login</small>
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <div class="input-group">
+                <input
+                  [type]="isPasswordVisible ? 'text' : 'password'"
+                  id="password"
+                  [(ngModel)]="user.password"
+                  name="password"
+                  class="form-control"
+                  placeholder="Enter a strong password"
+                />
+                <div class="input-group-append">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary"
+                    (click)="togglePasswordVisibility()"
+                    [attr.aria-pressed]="isPasswordVisible"
+                  >
+                    <i [ngClass]="isPasswordVisible ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+                  </button>
+                </div>
+              </div>
+              <small class="text-muted">Your password must be at least 6 characters long and include letters, numbers, and special characters.</small>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" [(ngModel)]="user.email" name="email" class="form-control">
+              <small class="text-muted">We'll send you updates and notifications to this email</small>
+            </div>
+            <div class="form-group">
+              <label for="firstName">First Name:</label>
+              <input type="text" id="firstName" [(ngModel)]="user.firstName" name="firstName" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name:</label>
+              <input type="text" id="lastName" [(ngModel)]="user.lastName" name="lastName" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="mobNo">Mobile Number:</label>
+              <input type="text" id="mobNo" [(ngModel)]="user.mobNo" name="mobNo" class="form-control">
+              <small class="text-muted">We'll send you SMS updates to this number</small>
+            </div>
+            <div class="form-group">
+              <label for="role">Role:</label>
+              <input type="text" id="role" [(ngModel)]="user.role" name="role" class="form-control">
+              <small class="text-muted">Your role will determine your access levels</small>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Update Profile</button>
+            <div class="btn btn-primary btn-block">
+              <button routerLink="/login" class="btn btn-link">Login</button>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a routerLink="/home" class="btn btn-secondary">Return to Home</a>
+      </div>
+    </div>
+  </div>
+</div>

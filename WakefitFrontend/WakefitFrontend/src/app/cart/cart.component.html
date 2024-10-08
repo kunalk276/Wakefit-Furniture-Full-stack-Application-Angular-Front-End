@@ -1,0 +1,39 @@
+<div class="cart-page">
+  <h1>Cart</h1>
+  <div *ngIf="cart && cart.products && cart.products.length > 0; else emptyCart" class="row">
+    <div class="col-sm-8 details">
+      <ul>
+        <li *ngFor="let product of cart.products">
+          <img [src]="product.images" alt="{{ product.name }}" class="product-image">
+          <div class="product-info">
+            <span class="product-name">{{ product.name }}</span>
+            <span class="product-price">Price: {{ product.price | currency:'INR':'symbol':'1.0-0' }}</span>
+            <span class="product-quantity">Quantity: {{ product.stockQuantity }}</span>
+            <button class="form-button1" (click)="removeProductFromCart(product.productId ?? 0)">Remove From Cart</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-4 summary">
+      <h3>Cart Summary</h3>
+      <ul>
+        <li><span>Amount:</span><span>{{ totalPrice | currency:'INR':'symbol':'1.0-0' }}</span></li>
+        
+        <li>
+          <span>Total Price:</span>
+          <h4>{{ totalPrice | currency:'INR':'symbol':'1.0-0' }}</h4>
+        </li>
+      </ul>
+      <button [routerLink]="['/checkout']" class="form-button max-width">Checkout</button>
+    </div>
+  </div>
+
+  <ng-template #emptyCart>
+    <div class="empty-cart-message">
+      <p>Your cart is empty.</p>
+      <a [routerLink]="['/viewproduct']" class="btn btn-info shadow-0 mt-3">
+        <i class="me-1 fa fa-arrow-left"></i> View Products
+      </a>
+    </div>
+  </ng-template>
+</div>

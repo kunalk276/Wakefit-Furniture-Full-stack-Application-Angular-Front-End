@@ -1,0 +1,246 @@
+.container {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.product-image-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-image-container img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-image-container img:hover {
+  transform: scale(1.05);
+}
+
+.product-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.text-warning i {
+  color: #ffc107;
+}
+
+.text-success {
+  font-weight: bold;
+  color: #28a745 !important;
+}
+
+.text-danger {
+  font-weight: bold;
+  color: #dc3545 !important;
+}
+
+.h5 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.text-muted {
+  font-size: 0.9rem;
+}
+
+.list-group-item {
+  border: none;
+  border-radius: 8px;
+  background-color: #fff;
+  margin-bottom: 0.5rem;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+.list-group-item strong {
+  color: #007bff;
+}
+
+.list-group-item p {
+  margin-bottom: 0;
+  color: #333;
+}
+
+.custom-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  background-color: #8bc34a;
+  border-color: #8bc34a;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #689f38;
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  background-color: #9e9e9e;
+  border-color: #9e9e9e;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-secondary:hover {
+  background-color: #7f7f7f;
+  transform: scale(1.05);
+}
+
+.btn-info {
+  background-color: #66d9ef;
+  border-color: #66d9ef;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-info:hover {
+  background-color: #44c7f4;
+  transform: scale(1.05);
+}
+
+.btn-warning {
+  background-color: #ff9800;
+  border-color: #ff9800;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-warning:hover {
+  background-color: #e67e00;
+  transform: scale(1.05);
+}
+
+.fa-star,
+.fas.fa-star-half-alt {
+  font-size: 1rem;
+}
+
+.fas.fa-star {
+  color: #ccc;
+}
+
+.fas.fa-star.filled {
+  color: #ffd700;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .product-name {
+    font-size: 1.5rem;
+  }
+
+  .h5 {
+    font-size: 1.25rem;
+  }
+
+  .custom-heading {
+    font-size: 1.25rem;
+  }
+}
+
+.btn-outline-primary {
+  border: 2px solid #3498db;
+  color: #3498db;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-primary:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.btn-gradient {
+  background-image: linear-gradient(to right, #4facfe 0%, #00b4db 100%);
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-gradient:hover {
+  background-image: linear-gradient(to right, #00b4db 0%, #4facfe 100%);
+}
+
+.feedback-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-card {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-card .card-body {
+  padding: 20px;
+}
+
+.feedback-card .rating-container {
+  display: flex;
+  align-items: center;
+}
+
+.feedback-card .rating-container p {
+  margin-bottom: 0;
+}
+
+.feedback-card .rating-container .fas.fa-star {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.feedback-card .rating-container .filled {
+  color: #ffd700;
+}
+
+.feedback-card .feedback-comment {
+  font-size: 16px;
+  color: #666;
+}
+
+.feedback-card img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.feedback-card strong {
+  font-size: 16px;
+  color: #333;
+}
+
+.feedback-card small {
+  font-size: 14px;
+  color: #999;
+}
+

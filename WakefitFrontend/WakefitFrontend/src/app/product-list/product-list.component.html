@@ -1,0 +1,24 @@
+<div class="container">
+  <h3 class="text-center">Product List</h3>
+
+  <div class="row">
+    <!-- Use *ngFor to loop through products and display them in a card format -->
+    <div class="col-md-4" *ngFor="let product of products">
+      <div class="product-item card mb-4">
+        <img [src]="product.images" alt="Product Image" class="card-img-top img-fluid">
+        <div class="card-body">
+          <h5 class="card-title name-head">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+          <span class="price">{{ product.price  }}</span>
+          <div>
+            <a [routerLink]="['/categories']" class="btn btn-primary btn-sm">View by category</a>
+            <button class="btn btn-primary btn-sm" (click)="updateProduct(product.productId)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteProduct(product.productId)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

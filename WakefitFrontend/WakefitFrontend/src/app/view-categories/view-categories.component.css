@@ -1,0 +1,95 @@
+/* Define CSS custom properties */
+:root {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-display: 'Poppins', sans-serif;
+  
+  --category-bg-image: url('https://img.freepik.com/premium-photo/best-abstract-wallpaper-designs-hyper-realistic-beautiful-illustrations_859483-831000.jpg?w=826');
+  --category-bg-color: hsl(var(--dusk-default));
+  --category-text-color: hsl(var(--five-am-default));
+  --category-text-shadow: 2px 2px 6px rgba(119, 8, 43, 0.6);
+  --category-description-bg: linear-gradient(45deg, #0f0fbe, #1ee5d1);
+  --category-btn-bg: hsl(var(--dusk-500));
+  --category-btn-hover-bg: hsl(var(--dusk-600));
+}
+
+/* Container for categories */
+.category-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--category-bg-color);
+}
+
+/* Category item styling */
+.category-item {
+  border: none;
+  border-radius: var(--radius);
+  overflow: hidden;
+  padding: 20px;
+  text-align: center;
+  background: var(--category-bg-color) no-repeat center center;
+  background-image: var(--category-bg-image);
+  background-size: cover;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.category-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Hide the image element */
+.category-item img {
+  display: none;
+}
+
+/* Category details */
+.category-details {
+  margin-top: 15px;
+}
+
+.category-details .name-head {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--category-text-color);
+  text-shadow: var(--category-text-shadow);
+  margin-bottom: 10px;
+}
+
+.category-details p {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: transparent;
+  background: var(--category-description-bg);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+  line-height: 1.8;
+}
+
+/* Category footer */
+.category-footer {
+  margin-top: 20px;
+}
+
+.category-footer .btn-primary {
+  background-color: var(--category-btn-bg);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  color: var(--primary-foreground);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.category-footer .btn-primary:hover {
+  background-color: var(--category-btn-hover-bg);
+  transform: scale(1.05);
+}

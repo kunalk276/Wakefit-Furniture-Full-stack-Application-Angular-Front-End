@@ -1,0 +1,127 @@
+
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  font-family: 'Arial', sans-serif;
+}
+
+h3.text-center {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffb222; 
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  position: relative;
+  text-align: center;
+}
+
+h3.text-center::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff5722, #ff9800); 
+  border-radius: 2px;
+}
+
+h3.text-center::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -18px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: #ff5722;
+  border-radius: 50%;
+}
+
+
+.text-center {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.text-center h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ff6f61; 
+  background: linear-gradient(90deg, #ff6f61, #d45d79);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+
+.form-group label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #ff6f61;
+  box-shadow: 0 0 0 0.2rem rgba(255, 105, 97, 0.25);
+}
+
+/* Button Styling */
+.btn-success {
+  background: linear-gradient(90deg, #aacd0e, #148ba6);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.btn-success:hover {
+  background: linear-gradient(90deg, #217388, #1e767e);
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  background: linear-gradient(90deg, #519fe4, #afb2ff);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(90deg, #6a0cbc, #c21515);
+  transform: scale(1.05);
+}

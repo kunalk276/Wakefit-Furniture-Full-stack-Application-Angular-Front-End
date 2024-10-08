@@ -1,0 +1,32 @@
+.update-category {
+    padding: 20px;
+  }
+  
+  .update-category h2 {
+    margin-bottom: 20px;
+  }
+  
+  .update-category form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .update-category label {
+    margin: 10px 0 5px;
+  }
+  
+  .update-category input, 
+  .update-category textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .update-category button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  

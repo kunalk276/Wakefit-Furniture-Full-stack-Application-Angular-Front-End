@@ -1,0 +1,83 @@
+<div class="container bg-image-login mt-5 mb-5">
+  <h2 class="text-center">Login</h2>
+  <form (ngSubmit)="login()" class="bg-overlay p-4 rounded" #loginForm="ngForm">
+    <div class="form-group mb-3">
+      <label for="username">Username:</label>
+      <input
+        type="text"
+        id="userName"
+        [(ngModel)]="credentials.username"
+        name="username"
+        class="form-control"
+        required
+        minlength="3"
+        #username="ngModel"
+        placeholder="Enter your username"
+      />
+      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+        <div *ngIf="username.errors?.['required']">Username is required.</div>
+        <div *ngIf="username.errors?.['minlength']">Username must be at least 3 characters long.</div>
+      </div>
+    </div>
+    
+    <div class="form-group mb-3">
+      <label for="password">Password:</label>
+      <div class="input-group">
+        <input
+          [type]="isPasswordVisible ? 'text' : 'password'"  
+          id="password"
+          [(ngModel)]="credentials.password"
+          name="password"
+          class="form-control"
+          required
+          minlength="6"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$"
+          #password="ngModel"
+          placeholder="Enter a strong password"
+        />
+        <div class="input-group-append">
+          <button 
+            type="button" 
+            class="btn btn-outline-secondary" 
+            (click)="togglePasswordVisibility()" 
+            [attr.aria-pressed]="isPasswordVisible"  
+          >
+            <i [ngClass]="isPasswordVisible ? 'fa fa-eye' : 'fa fa-eye-slash'"></i> 
+          </button>
+        </div>
+      </div>
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+        <div *ngIf="password.errors?.['required']">Password is required.</div>
+        <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters long.</div>
+        <div *ngIf="password.errors?.['pattern']">
+          Hint Password  contain:
+          <ul class="mb-0">
+            <li>At least one uppercase letter</li>
+            <li>At least one lowercase letter</li>
+            <li>At least one number</li>
+            <li>At least one special character</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary animated-button" [disabled]="loginForm.invalid">
+        <i class="fas fa-sign-in-alt"></i> Login
+      </button>
+      <p *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</p>
+    </div>
+
+    <div class="text-center mt-4">
+      <button routerLink="/create-user" class="btn btn-register animated-button">
+        <i class="fas fa-user-plus"></i> Register
+      </button>
+    </div>
+  </form>
+
+  <div class="text-center mt-4">
+    <a routerLink="/home" class="btn btn-secondary">
+      <i class="fas fa-home"></i> Return to Home
+    </a>
+  </div>
+</div>

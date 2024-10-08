@@ -1,0 +1,286 @@
+<app-hero-carousel></app-hero-carousel>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+<div class="hero-section">
+    <div class="hero-text text-center">
+      <h1 class="gradient-text">Discover Cherished Space Design Trends</h1>
+        <p>Upgrade your living space with our exclusive furniture collections.</p>
+        <a routerLink="/viewproduct" class="btn btn-lg btn-primary">Shop Now</a>
+    </div>
+</div>
+
+
+<div class="featured-categories container">
+  <h2 class="text-center">Shop by Categories</h2>
+  <div class="row">
+      <div class="col-md-2 category-item text-center" *ngFor="let category of categories">
+          <a [routerLink]="'/category-products/' + category.categoryId">
+              <img src="{{ category.imageUrl }}" alt="{{ category.name }}" class="img-fluid">
+              <h3>{{ category.name }}</h3>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <h2 class="text-center">View Exclusive Products</h2>
+  <div class="row">
+      <div class="col-md-3 product-item">
+          <img src="https://img.freepik.com/premium-photo/candles-wooden-cupboard-bedroom-interior-with-plants-shadows-wall-real-photo_828688-2662.jpg?w=900" alt="Modern Elegance Cabinet Table">
+          <div class="product-details">
+              <h2 class="name-head">Modern Elegance Cabinet Table</h2>
+              <p>Combining sleek contemporary design with practical functionality.</p>
+          </div>
+          <div class="product-footer">
+              <span class="price">₹40,000</span>
+              <a routerLink="/viewproduct" class="btn btn-primary">BUY more like this</a>
+          </div>
+      </div>
+
+      <div class="col-md-3 product-item">
+          <img src="https://img.freepik.com/free-photo/interior-design-with-photoframes-plants_23-2149385437.jpg?t=st=1721358813~exp=1721362413~hmac=6d3b7da52875acb2ef0054eda75df9c4aa66954e6c57ea329f5d6fd6c35991d4&w=900" alt="Urban Chic Sofa">
+          <div class="product-details">
+              <h2 class="name-head">Urban Chic Sofa</h2>
+              <p>Embrace modern living with sleek, minimalist design and high-quality upholstery for style and durability.</p>
+          </div>
+          <div class="product-footer">
+              <span class="price">₹42,000</span>
+              <a routerLink="/viewproduct" class="btn btn-primary">BUY more like this</a>
+          </div>
+      </div>
+      <div class="col-md-3 product-item">
+        <img src="https://img.freepik.com/premium-photo/modern-living-room-with-bold-area-rug-stylish-fu_1169880-123790.jpg?w=900" alt="Stylish Area Rug">
+        <div class="product-details">
+            <h2 class="name-head">Stylish Area Rug</h2>
+            <p>This stylish area rug enhances the comfort and aesthetics of your living space.</p>
+        </div>
+        <div class="product-footer">
+            <span class="price">₹28,000</span>
+            <a routerLink="/viewproduct" class="btn btn-primary">BUY more like this</a>
+        </div>
+    </div>
+    <div class="col-md-3 product-item">
+      <img src="https://img.freepik.com/premium-photo/modern-bedroom-interior_23-2149385435.jpg?w=900" alt="Elegant Bed Frame">
+      <div class="product-details">
+          <h2 class="name-head">Elegant Bed Frame</h2>
+          <p>This elegant bed frame features a contemporary design with a sturdy build.</p>
+      </div>
+      <div class="product-footer">
+          <span class="price">₹42,000</span>
+          <a routerLink="/viewproduct" class="btn btn-primary">BUY more like this</a>
+      </div>
+  </div>
+      <div class="col-md-3 product-item">
+          <img src="https://img.freepik.com/free-photo/modern-vanity-table_23-2149385439.jpg?w=900" alt="Chic Vanity Table">
+          <div class="product-details">
+              <h2 class="name-head">Chic Vanity Bed</h2>
+              <p>This chic vanity table is designed for elegance and functionality, comfort.    </p>
+          </div>
+          <div class="product-footer">
+              <span class="price">₹35,000</span>
+              <a routerLink="/viewproduct" class="btn btn-primary">BUY more like this</a>
+          </div>
+      </div>
+
+      <div class="col-md-3 product-item">
+          <img src="https://img.freepik.com/premium-photo/curly-blue_1234738-302671.jpg?w=1060" alt="Elegance Armchair">
+          <div class="product-details">
+              <h2 class="name-head">Elegance Armchair</h2>
+              <p>Combining timeless design with unparalleled comfort, featuring a classic tufted back and elegant curved arms.</p>
+          </div>
+          <div class="product-footer">
+              <span class="price">₹21,000</span>
+              <a routerLink="/viewproduct" class="btn btn-primary">BUY more like this</a>
+          </div>
+      </div>
+
+      <div class="col-md-3 product-item">
+        <img src="https://img.freepik.com/free-photo/modern-cozy-living-room-interior_23-2149385430.jpg?w=900" alt="Cozy Living Room Set">
+        <div class="product-details">
+            <h2 class="name-head">Cozy Living Room Set</h2>
+            <p>This living room set offers comfort and style with plush seating and a modern design, perfect for any home.</p>
+        </div>
+        <div class="product-footer">
+            <span class="price">₹55,000</span>
+            <a routerLink="/viewproduct" class="btn btn-primary">BUY more like this</a>
+        </div>
+    </div>
+      
+      <div class="col-md-3 product-item">
+        <img src="https://img.freepik.com/free-photo/modern-coffee-table_23-2149385433.jpg?w=900" alt="Sleek Coffee Table">
+        <div class="product-details">
+            <h2 class="name-head">Sleek Coffee Table</h2>
+            <p>This sleek coffee table combines style and practicality, perfect for your living room.</p>
+        </div>
+        <div class="product-footer">
+            <span class="price">₹15,000</span>
+            <a routerLink="/viewproduct" class="btn btn-primary">BUY more like this</a>
+        </div>
+    </div>
+  </div>
+</div>
+
+<section class="testimonials-section container">
+    <h2 class="text-center">What Our Customers Say</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="testimonial-item">
+          <blockquote>
+            <p>"Amazing quality and fast delivery! Highly recommend this store."</p>
+            <cite>- Kunal Kadam</cite>
+          </blockquote>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-item">
+          <blockquote>
+            <p>"The best shopping experience I've had in years."</p>
+            <cite>- Shreyash Kadam</cite>
+          </blockquote>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-item">
+          <blockquote>
+            <p>"Beautiful furniture that fits perfectly with my home decor."</p>
+            <cite>- Yugank Kadam</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+<div class="newsletter-section">
+    <div class="container text-center">
+      <h2>Stay Updated</h2>
+      <p>Get the latest updates on new products and upcoming sales.</p>
+      <form (ngSubmit)="onSubscribe()">
+        <input type="email" [(ngModel)]="email" name="email" placeholder="Enter your email" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  
+  <div id="thank-you-modal" class="modal fade" tabindex="-1" [ngClass]="{'show': showModal}" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="https://img.freepik.com/free-vector/vintage-background-watercolor-roses_23-2147651472.jpg?t=st=1725883097~exp=1725886697~hmac=8dac9505d6fa5825e2f6ee8f5b77817466e2f508efb3260a2103ca55cc0062e2&w=740" alt="Thank You Background with Colorful Confetti" class="thank-you-icon me-2">
+                <h5 class="modal-title">Thank You for Subscribing!</h5>
+                <button type="button" class="btn-close" aria-label="Close" (click)="closeSubscriptionModal()"></button>
+            </div>
+            <div class="modal-body">
+                <p>You will get the latest updates on new products and upcoming sales.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="closeSubscriptionModal()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+  
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h3>OUR COMMITMENT</h3> 
+                <p class="highlighted-text"> At Wakefit, we deliver high-quality, affordable furniture that enhances your home. Our advanced web platform, built with Angular, Java, Hibernate, and Spring Boot, ensures a smooth shopping experience. From browsing to purchase, we prioritize your satisfaction every step of the way. </p>
+            </div>
+            <div class="col-md-3">
+                <h3>Reach at Me</h3>
+                <ul class="social-icons">
+                    <li>
+                        <a href="mailto:kunalkadam2762001@gmail.com" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-envelope"></i>
+                            <span class="tooltip">Email</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/kunalk276" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                            <span class="tooltip">GitHub</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/kunal-kadam-19m276/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span class="tooltip">LinkedIn</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.hackerrank.com/profile/kunalkadam276201" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-code"></i>
+                            <span class="tooltip">HackerRank</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://leetcode.com/u/kunalk9044/" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-laptop-code"></i>
+                            <span class="tooltip">LeetCode</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            
+                <div class="col-md-3">
+                  <h3>Privacy Policy</h3>
+                  <ul class="privacy-policy">
+                    <li (mouseenter)="openModal('services')" (mouseleave)="closeModal()">Services</li>
+                    <li (mouseenter)="openModal('offers')" (mouseleave)="closeModal()">Offers</li>
+                    <li (mouseenter)="openModal('locations')" (mouseleave)="closeModal()">Locations</li>
+                    <li (mouseenter)="openModal('FAQs')" (mouseleave)="closeModal()">FAQs</li>
+                  </ul>
+                </div>
+              
+                <div class="col-md-3">
+                    <h3>Privacy Policy Details</h3>
+                    <ul class="privacy-details">
+                      <li (click)="openModal('overview')">Privacy Policy Overview</li>
+                      <li (click)="openModal('dataProtection')">Data Protection</li>
+                      <li (click)="openModal('cookiesPolicy')">Cookies Policy</li>
+                      <li (click)="openModal('termsOfService')">Terms of Services</li>
+                      <li  >
+                        <a [routerLink]="['/contact-us']" >Contact Us</a>
+                      </li>
+                      
+                    </ul>
+                  </div>
+              
+              
+              <div class="modal" [ngClass]="{'show': isModalOpen}" tabindex="-1" role="dialog" [ngStyle]="{'display': isModalOpen ? 'block' : 'none'}">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">{{ modalTitle }}</h5>
+                      <button type="button" class="close" (click)="closeModal()">
+                        <span>&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>{{ modalContent }}</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+              
+              

@@ -1,0 +1,78 @@
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.user-card {
+  background: linear-gradient(135deg, rgba(63,81,181,0.85), rgba(63, 81, 181, 0.65)), 
+              url('https://img.freepik.com/premium-photo/business-concept-image-people-figures-human-resources-management-concept_1346034-3904.jpg?w=360');
+  background-size: cover;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+
+.user-details {
+  font-size: 1.2rem;
+  line-height: 2;
+  margin-bottom: 40px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.detail-item i {
+  font-size: 1.4rem;
+  color: #ffd700;
+}
+
+
+.btn-gradient-primary {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-gradient-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+.text-gradient {
+  background: linear-gradient(45deg, #ff6f91, #ff9671);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://img.freepik.com/premium-photo/business-concept-image-people-figures-human-resources-management-concept_1346034-3904.jpg?w=360');
+  opacity: 0.1;
+  z-index: 1;
+}

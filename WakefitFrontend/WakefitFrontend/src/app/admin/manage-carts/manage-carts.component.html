@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>Manage Carts</h2>
+  
+  <!-- Cart Selector -->
+  <div class="mb-3">
+    <label for="cartSelector" class="form-label">Select Cart</label>
+    <select id="cartSelector" class="form-select" (change)="onCartChange($event)">
+      <option value="" disabled selected>Select a cart</option>
+      <option *ngFor="let cart of carts" [value]="cart.cartId">{{ cart.cartId }}</option>
+    </select>
+  </div>
+
+  <!-- Cart Details -->
+  <div *ngIf="selectedCart">
+    <h3>Cart ID: {{ selectedCart.cartId }}</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of selectedCart.products">
+          <td>
+            <img [src]="product.images && product.images.length > 0 ? product.images[0] : 'default-image-url.jpg'" alt="{{ product.name }}" class="img-thumbnail" width="100">
+          </td>
+          <td>{{ product.name }}</td>
+          <td>Rs{{ product.price }}</td>
+          <td>{{ product.stockQuantity }}</td>
+          <td>Rs{{ product.price * (product.stockQuantity || 1) }}</td>
+          <td>
+            <button class="btn btn-info" (click)="viewProduct(product?.productId || 0)">Details</button>
+            <button class="btn btn-danger" (click)="removeProduct(product?.productId ?? 0)">Remove</button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+    <h4>Total Price: Rs{{ totalPrice }}</h4>
+  </div>
+
+  <ng-template #emptyCart>
+    <div class="empty-cart-message">
+      <p>Your cart is empty.</p>
+      <a [routerLink]="['/viewproduct']" class="btn btn-info shadow-0 mt-3">
+        <i class="me-1 fa fa-arrow-left"></i> View Products
+      </a>
+    </div>
+  </ng-template>
+</div>

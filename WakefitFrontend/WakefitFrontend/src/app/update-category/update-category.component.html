@@ -1,0 +1,17 @@
+<div class="update-category">
+    <h2>Update Category</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name">Name:</label>
+        <input id="name" [(ngModel)]="category.name" name="name" required>
+      </div>
+  
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" [(ngModel)]="category.description" name="description"></textarea>
+      </div>
+  
+      <button type="submit">Update</button>
+    </form>
+  </div>
+  

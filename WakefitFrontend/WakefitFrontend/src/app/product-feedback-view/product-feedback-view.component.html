@@ -1,0 +1,82 @@
+<div class="container py-5">
+  <div class="row mb-5">
+    <div class="col-lg-6">
+      <div class="product-image-container border rounded-4 mb-3 d-flex justify-content-center">
+        <img style="max-width: 100%; max-height: 80vh; height: auto; margin: auto;" 
+             class="rounded-4 fit" 
+             [src]="product.images" 
+             alt="Product Image" />
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <h2 class="product-name mb-3">{{ product.name }}</h2>
+      <div class="d-flex flex-row my-3 align-items-center">
+        <div class="text-warning mb-1 me-2">
+          <i class="fa fa-star" *ngFor="let star of stars"></i>
+          <i class="fas fa-star-half-alt" *ngIf="product.rating % 1 !== 0"></i>
+          <span class="ms-1">{{ product.rating }}</span>
+        </div>
+        
+        <span class="text-success ms-2" *ngIf="product.stockQuantity">In stock</span>
+        <span class="text-danger ms-2" *ngIf="!product.stockQuantity">Out of stock</span>
+      </div>
+
+      <div class="mb-3">
+        <span class="h5">{{ product.price | currency:'INR':'symbol':'1.0-0' }}</span>
+        <span class="text-muted">/per unit</span>
+      </div>
+
+      <p class="product-description">{{ product.description }}</p>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-6 col-sm-12 mb-2">
+      <button class="btn btn-lg btn-success btn-rounded w-100" (click)="goToProductDetails()">
+        <i class="fas fa-chevron-up me-2"></i>Return to Product Details
+      </button>
+    </div>
+    
+    <div class="col-md-6 col-sm-12 mb-2">
+      <a [routerLink]="['/viewproduct']" class="btn btn-lg btn-primary btn-flat w-100">
+        <i class="fas fa-chevron-right me-2"></i>Explore Products
+      </a>
+    </div>
+  </div>
+
+  <div class="feedback-container mt-5">
+    <h3 class="text-center mb-4 custom-heading">What Our Customers Say</h3>
+    <div *ngIf="feedbacks.length; else noFeedbacks">
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mb-4" *ngFor="let feedback of feedbacks">
+                <div class="card feedback-card shadow-lg">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-start align-items-center mb-3">
+                            <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?t=st=1726647738~exp=1726651338~hmac=76c75ca204985db9d84bad2d6af39d40726de5034c321f5d613cc4b0adfff7e8&w=740" alt="User Avatar" class="rounded-circle me-2" width="50" height="50">
+                            <div>
+                                <strong>{{ feedback.userName }}</strong>
+                                <small class="text-muted d-block">{{ feedback.feedbackDate | date: 'short' }}</small>
+                            </div>
+                        </div>
+
+                        <div class="rating-container mt-2 mb-3">
+                            <p class="mb-1">Rating:</p>
+                            <div>
+                                <span *ngFor="let star of getStars(feedback.rating)">
+                                    <i class="fas fa-star" [ngClass]="{'filled': star <= feedback.rating}"></i>
+                                </span>
+                                <span class="rating-value ms-2">{{ feedback.rating }} / 5</span>
+                            </div>
+                        </div>
+
+                        <p class="mt-2 feedback-comment">{{ feedback.comment }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #noFeedbacks>
+        <p class="text-center">No feedbacks available for this product.</p>
+    </ng-template>
+</div>

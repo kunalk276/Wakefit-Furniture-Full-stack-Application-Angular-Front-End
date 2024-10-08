@@ -1,0 +1,77 @@
+/* Container Styling */
+.manage-feedbacks {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Heading Styling */
+  .manage-feedbacks h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  /* Table Styling */
+  .manage-feedbacks table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  .manage-feedbacks th, .manage-feedbacks td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .manage-feedbacks th {
+    background-color: #f8f9fa;
+  }
+  
+  .manage-feedbacks tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .manage-feedbacks .btn-group {
+    display: flex;
+  }
+  
+  .manage-feedbacks .btn {
+    margin-right: 5px;
+  }
+  
+  /* Button Styling */
+  .manage-feedbacks .btn {
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  
+  .manage-feedbacks .btn-info {
+    background-color: #17a2b8;
+    color: white;
+  }
+  
+  .manage-feedbacks .btn-primary {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .manage-feedbacks .btn-danger {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .manage-feedbacks .btn-info:hover {
+    background-color: #138496;
+  }
+  
+  .manage-feedbacks .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .manage-feedbacks .btn-danger:hover {
+    background-color: #c82333;
+  }
+  

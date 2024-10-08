@@ -1,0 +1,42 @@
+<div class="container">
+  <h3 class="text-center">View Feedback Details</h3>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="feedback-item">
+        <div class="feedback-details">
+          <ng-container *ngIf="feedback; else loadingOrNoFeedback">
+            <h2 class="rating-head">Feedback ID: {{ feedback.feedbackId }}</h2>
+            
+            <!-- Display Product ID and Product Name -->
+            <p>Product ID: {{ feedback.productId }}</p>
+            <p>Product Name: {{ feedback.name }}</p>
+            
+            <!-- Display Product Image -->
+            <div *ngIf="feedback.images">
+              <p>Product Image:</p>
+              <img [src]="feedback.images" alt="Product Image" style="max-width: 100%; height: auto;"/>
+            </div>
+
+            <p>Rating:
+              <span *ngFor="let star of getStars(feedback.rating)">
+                <i class="fas fa-star" [ngClass]="{'filled': star <= feedback.rating}"></i>
+              </span>
+            </p>
+            
+            <p class="feedback-comment">Comment: {{ feedback.comment }}</p>
+            <p class="feedback-date">Feedback Date: {{ feedback.feedbackDate | date }}</p>
+          </ng-container>
+          
+          <ng-template #loadingOrNoFeedback>
+            <p *ngIf="!feedback">Loading feedback details...</p>
+            <p *ngIf="feedback === null">No feedback available.</p>
+          </ng-template>
+        </div>
+        <div class="text-center mt-4">
+          <button class="btn btn-secondary" (click)="goBack()">Back</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

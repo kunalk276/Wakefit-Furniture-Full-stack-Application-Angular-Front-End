@@ -1,0 +1,30 @@
+<div class="search-results container">
+  <h2 class="text-center">Search Results for "<span class="highlight">{{ searchTerm }}</span>"</h2>
+  <div *ngIf="error" class="error-message">
+    <p>{{ error }}</p>
+  </div>
+  <div class="row" *ngIf="products.length > 0; else noResults">
+    <div class="col-md-4" *ngFor="let product of products">
+      <div class="product-item">
+        <div class="product-image">
+          <img [src]="product.images" alt="{{ product.name }}" class="img-fluid">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">{{ product.name }}</h3>
+          <div class="product-footer">
+            <span class="price">{{ product.price | currency:'INR' }}</span>
+            <button 
+              class="btn btn-primary" 
+              (click)="viewDetails(product.productId!)" 
+              *ngIf="product.productId !== undefined">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noResults>
+    <p class="text-center no-results-message">No products found for "{{ searchTerm }}"</p>
+  </ng-template>
+</div>

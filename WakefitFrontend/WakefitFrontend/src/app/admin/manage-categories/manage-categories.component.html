@@ -1,0 +1,43 @@
+<div class="container">
+    <h2 class="text-center mb-4">Manage Categories</h2>
+    
+    <!-- Navigation Links -->
+    <div class="mb-3">
+      <a routerLink="/create-category" routerLinkActive="active" class="btn btn-outline-secondary mr-2">Add Category</a>
+      <a routerLink="/update-category" routerLinkActive="active" class="btn btn-outline-info mr-2">Update Category</a>
+      <a routerLink="/delete-category" routerLinkActive="active" class="btn btn-outline-danger">Delete Category</a>
+    </div>
+  
+    <!-- Categories Table -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories">
+          <td>{{ category.categoryId }}</td>
+          <td>{{ category.name }}</td>
+          <td>{{ category.description }}</td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-info" (click)="categoryDetails(category.categoryId)">Details</button>
+              <button class="btn btn-primary" (click)="updateCategory(category.categoryId)">Update</button>
+              <button class="btn btn-danger" (click)="deleteCategory(category.categoryId)">Delete</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Navigation Buttons -->
+    <div class="text-center mt-4">
+      <a routerLink="/home" class="btn btn-secondary">Return to Home</a>
+      <a routerLink="/manage-products" class="btn btn-secondary">View All Products</a>
+    </div>
+  </div>
+  

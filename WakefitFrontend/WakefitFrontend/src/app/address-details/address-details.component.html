@@ -1,0 +1,17 @@
+<!-- address-details.component.html -->
+<div class="container">
+    <h2>Address Details</h2>
+    <div *ngIf="address">
+      <p><strong>Address ID:</strong> {{ address.addressId }}</p>
+      <p><strong>Landmark:</strong> {{ address.landmark }}</p>
+      <p><strong>Address:</strong> {{ address.address }}</p>
+      <p><strong>City:</strong> {{ address.city }}</p>
+      <p><strong>State:</strong> {{ address.state }}</p>
+      <p><strong>Pincode:</strong> {{ address.pincode }}</p>
+    </div>
+    <button class="btn btn-primary" (click)="goBack()">Back</button>
+    <div *ngIf="!address">
+      <p>Address not found or loading...</p>
+    </div>
+  </div>
+  

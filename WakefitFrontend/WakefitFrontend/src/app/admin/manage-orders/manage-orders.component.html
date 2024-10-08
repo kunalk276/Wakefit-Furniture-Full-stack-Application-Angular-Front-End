@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Manage Orders</h2>
+
+  <div *ngIf="loading">Loading orders...</div>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>User</th>
+        <th>Total Amount</th>
+        <th>Payment Status</th>
+        <th>Order Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.orderId }}</td>
+        <td>{{ order.user }}</td>
+        <td>{{ order.totalAmount }}</td>
+        <td>{{ order.paymentStatus }}</td>
+        <td>
+          <select (change)="updateOrderStatus(order.orderId, $event)">
+            <option value="pending" [selected]="order.orderStatus === 'pending'">Pending</option>
+            <option value="shipped" [selected]="order.orderStatus === 'shipped'">Shipped</option>
+            <option value="delivered" [selected]="order.orderStatus === 'delivered'">Delivered</option>
+            <option value="cancelled" [selected]="order.orderStatus === 'cancelled'">Cancelled</option>
+          </select>
+        </td>
+        
+        <td>
+          <button (click)="viewOrder(order.orderId)">View</button>
+          <button (click)="updateOrder(order.orderId)">Update</button>
+          <button (click)="deleteOrder(order.orderId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

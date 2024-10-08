@@ -1,0 +1,178 @@
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-12">
+      <div class="card shadow-lg rounded-lg border-0 bg-image-card">
+        <div class="card-body p-4 bg-overlay">
+          <h2 class="text-center mb-4">Create Account</h2>
+          <form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+            
+            <div class="form-group mb-3">
+              <label for="userName">Username:</label>
+              <input
+                type="text"
+                id="userName"
+                class="form-control"
+                name="userName"
+                [(ngModel)]="user.userName"
+                required
+                minlength="3"
+                #userName="ngModel"
+                placeholder="Enter your username"
+              />
+              <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="text-danger">
+                <div *ngIf="userName.errors?.['required']">Username is required.</div>
+                <div *ngIf="userName.errors?.['minlength']">Username must be at least 3 characters long & Alphanumeric Values.</div>
+              </div>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="password">Password:</label>
+              <div class="input-group">
+                <input
+                  [type]="isPasswordVisible ? 'text' : 'password'"  
+                  id="password"
+                  class="form-control"
+                  name="password"
+                  [(ngModel)]="user.password"
+                  required
+                  minlength="6"
+                  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$"
+                  #password="ngModel"
+                  placeholder="Enter a strong password"
+                />
+                <div class="input-group-append">
+                  <button 
+                    type="button" 
+                    class="btn btn-outline-secondary" 
+                    (click)="togglePasswordVisibility()" 
+                    [attr.aria-pressed]="isPasswordVisible"  
+                  >
+                    <i [ngClass]="isPasswordVisible ? 'fa fa-eye' : 'fa fa-eye-slash'"></i> 
+                  </button>
+                </div>
+              </div>
+              <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                <div *ngIf="password.errors?.['required']">Password is required.</div>
+                <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters long.</div>
+                <div *ngIf="password.errors?.['pattern']">
+                  Password must contain:
+                  <ul class="mb-0">
+                    <li>At least one uppercase letter</li>
+                    <li>At least one lowercase letter</li>
+                    <li>At least one number</li>
+                    <li>At least one special character</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group mb-3">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                name="email"
+                [(ngModel)]="user.email"
+                required
+                pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
+                #email="ngModel"
+                placeholder="Enter your Gmail address"
+              />
+              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                <div *ngIf="email.errors?.['required']">Email is required.</div>
+                <div *ngIf="email.errors?.['pattern']">
+                  Please enter a valid Gmail address (e.g., user&#64;gmail.com).
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="firstName">First Name:</label>
+              <input
+                type="text"
+                id="firstName"
+                class="form-control"
+                name="firstName"
+                [(ngModel)]="user.firstName"
+                required
+                #firstName="ngModel"
+                placeholder="Enter your first name"
+              />
+              <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="text-danger">
+                <div *ngIf="firstName.errors?.['required']">First name is required.</div>
+              </div>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="lastName">Last Name:</label>
+              <input
+                type="text"
+                id="lastName"
+                class="form-control"
+                name="lastName"
+                [(ngModel)]="user.lastName"
+                required
+                #lastName="ngModel"
+                placeholder="Enter your last name"
+              />
+              <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="text-danger">
+                <div *ngIf="lastName.errors?.['required']">Last name is required.</div>
+              </div>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="mobNo">Mobile Number:</label>
+              <input
+                type="text"
+                id="mobNo"
+                class="form-control"
+                name="mobNo"
+                [(ngModel)]="user.mobNo"
+                required
+                pattern="^[0-9]{10}$"
+                minlength="10"
+                maxlength="10"
+                inputmode="numeric"
+                (keypress)="validateNumber($event)"
+                #mobNo="ngModel"
+                placeholder="Enter your 10-digit mobile number"
+              />
+              <div *ngIf="mobNo.invalid && (mobNo.dirty || mobNo.touched)" class="text-danger">
+                <div *ngIf="mobNo.errors?.['required']">Mobile number is required.</div>
+                <div *ngIf="mobNo.errors?.['pattern']">Mobile number must be a valid 10-digit number.</div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="registrationForm.invalid">
+              Register
+            </button>
+            
+            <div class="text-center mt-4">
+              <p>Already Registered? 
+                <button routerLink="/login" class="btn btn-login animated-button">
+                  <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+              </p>
+            </div>
+            
+            
+          </form>
+
+          <div class="text-center mt-4">
+            <a routerLink="/home" class="btn btn-secondary">Return to Home</a>
+          </div>
+
+          <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

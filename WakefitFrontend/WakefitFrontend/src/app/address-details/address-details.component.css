@@ -1,0 +1,92 @@
+/* Container styling */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 25px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  font-family: 'Arial', sans-serif;
+}
+
+/* Heading styling */
+.container h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px solid #3498db; /* Vibrant blue underline */
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.container h2::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #2ecc71); /* Gradient underline */
+  border-radius: 2px;
+}
+
+.container h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -18px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: #3498db;
+  border-radius: 50%;
+}
+
+/* Details paragraph styling */
+.container p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: #34495e;
+}
+
+.container p strong {
+  color: #2c3e50;
+}
+
+/* Back button styling */
+.btn-primary {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 20px auto;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  background-color: #3498db; /* Vibrant blue */
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9; /* Darker blue */
+  transform: scale(1.05);
+}
+
+.btn-primary:active {
+  background-color: #2471a3; /* Even darker blue */
+  transform: scale(0.98);
+}
+
+/* Message styling */
+.container p:last-of-type {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #e74c3c; /* Vibrant red */
+}

@@ -1,0 +1,69 @@
+<!-- create-address.component.html -->
+<div class="container">
+  <h3 class="text-center">Add/Edit Address</h3>
+  <form (ngSubmit)="onSubmit()" #addressForm="ngForm">
+    <div class="form-group">
+      <label for="landmark">Landmark:</label>
+      <input
+        type="text"
+        id="landmark"
+        class="form-control"
+        name="landmark"
+        [(ngModel)]="address.landmark"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <textarea
+        id="address"
+        class="form-control"
+        name="address"
+        [(ngModel)]="address.address"
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="city">City:</label>
+      <input
+        type="text"
+        id="city"
+        class="form-control"
+        name="city"
+        [(ngModel)]="address.city"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="state">State:</label>
+      <input
+        type="text"
+        id="state"
+        class="form-control"
+        name="state"
+        [(ngModel)]="address.state"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="pincode">Pincode:</label>
+      <input
+        type="text"
+        id="pincode"
+        class="form-control"
+        name="pincode"
+        [(ngModel)]="address.pincode"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save Address</button>
+  </form>
+  <div class="text-center mt-4">
+    <a routerLink="/manage-addresses" class="btn btn-secondary">View All Addresses</a>
+  </div>
+</div>

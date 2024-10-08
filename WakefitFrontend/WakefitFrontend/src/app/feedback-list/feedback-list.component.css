@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('https://via.placeholder.com/1920x1080');
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    color: #eee;
+}
+
+app-header {
+    color: #ffffff;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+app-header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+app-header .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+app-header .menu li {
+    display: inline;
+}
+
+app-header .menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+app-header .menu a:hover {
+    text-decoration: underline;
+}
+
+.container,
+.row,
+.feedback-item,
+.feedback-details,
+.feedback-footer,
+.text-center {
+    margin-top: 70px;
+}
+
+.container {
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h3.text-center {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #6116b7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    position: relative;
+    text-align: center;
+}
+
+h3.text-center::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #4caf50, #81c784);
+    border-radius: 2px;
+}
+
+h3.text-center::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: #4caf50;
+    border-radius: 50%;
+}
+
+.row {
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(202, 64, 64, 0.2);
+}
+
+.feedback-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    
+}
+
+
+.feedback-details {
+    margin-top: 10px;
+}
+
+.feedback-details .rating-head {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.feedback-details .rating-head .fas.fa-star {
+    color: #ccc;
+    margin-right: 5px;
+}
+
+.feedback-details .rating-head .fas.fa-star.filled {
+    color: #ffd700;
+}
+
+.feedback-details .feedback-comment {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #007bff;
+    margin-top: 10px;
+}
+
+.feedback-details .feedback-date {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #28a745;
+    margin-top: 5px;
+}
+
+.feedback-footer {
+    margin-top: 10px;
+}
+
+.feedback-footer .btn-primary {
+    background-color: #6f42c1;
+    border: none;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.feedback-footer .btn-primary:hover {
+    background-color: #5a32a1;
+    transform: translateY(-2px);
+}
+
+.feedback-footer .btn-danger {
+    background-color: #dc3545;
+    border: none;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.feedback-footer .btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.text-center {
+    margin-top: 20px;
+}
+
+.text-center .btn-secondary {
+    background-color: #28a745;
+    border: none;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.text-center .btn-secondary:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 991.98px) {
+    .container,
+    .row,
+    .feedback-item,
+    .feedback-details,
+    .feedback-footer,
+    .text-center {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    app-header {
+        padding: 10px 0;
+    }
+
+    .container,
+    .row,
+    .feedback-item,
+    .feedback-details,
+    .feedback-footer,
+    .text-center {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 576px) {
+    app-header {
+        padding: 8px 0;
+    }
+
+    .container,
+    .row,
+    .feedback-item,
+    .feedback-details,
+    .feedback-footer,
+    .text-center {
+        margin-top: 30px;
+    }
+}
+.feedback-footer .btn-primary {
+    background: linear-gradient(90deg, #6f42c1, #9e6cdb);
+    border: none;
+    color: #ffffff;
+    padding: 12px 20px;  /* Increased padding for a larger button */
+    border-radius: 30px;  /* More rounded corners */
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.feedback-footer .btn-primary:hover {
+    background: linear-gradient(90deg, #5a32a1, #8366b3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* Adding shadow effect on hover */
+}
+
+.feedback-footer .btn-danger {
+    background: linear-gradient(90deg, #dc3545, #ff6f72);
+    border: none;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 30px;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.feedback-footer .btn-danger:hover {
+    background: linear-gradient(90deg, #c82333, #ff5b64);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.text-center .btn-secondary {
+    background: linear-gradient(90deg, #28a745, #5bc236);
+    border: none;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 30px;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.text-center .btn-secondary:hover {
+    background: linear-gradient(90deg, #218838, #4cae4f);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.feedback-footer .btn-secondary {
+    background: linear-gradient(90deg, #28a745, #5bc236);
+    border: none;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 30px;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.feedback-footer .btn-secondary:hover {
+    background: linear-gradient(90deg, #218838, #4cae4f);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}

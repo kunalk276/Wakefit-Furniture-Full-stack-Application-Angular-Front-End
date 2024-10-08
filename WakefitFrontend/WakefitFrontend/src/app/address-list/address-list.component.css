@@ -1,0 +1,81 @@
+.table {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table th, .table td {
+  vertical-align: middle;
+  transition: all 0.3s ease;
+}
+
+/* Enhanced Table Row Hover */
+.table-hover tbody tr:hover {
+  background-color: #e9ecef;
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+  background-color: #343a40;
+  color: white;
+  font-weight: 600;
+}
+
+.table td {
+  font-size: 14px;
+}
+
+/* Buttons */
+.btn {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Button Hover Effects */
+.btn-primary:hover, .btn-outline-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+  transform: scale(1.05); /* Slightly bigger on hover */
+}
+
+.btn-warning:hover, .btn-outline-warning:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+  transform: scale(1.05); /* Slightly bigger on hover */
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+  transform: scale(1.05); /* Slightly bigger on hover */
+}
+
+.btn:hover {
+  opacity: 0.95;
+}
+
+/* Centered Large Buttons */
+.text-center .btn-lg {
+  margin: 0 10px;
+}
+
+.btn-lg {
+  padding: 10px 20px;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effect for Large Buttons */
+.btn-lg:hover {
+  transform: scale(1.08);
+}
+
+/* Spacing */
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}

@@ -1,0 +1,48 @@
+<div class="container">
+  <h2 class="text-center mb-4" style="color: #6116b7;">Update Feedback</h2>
+  <form (ngSubmit)="onSubmit()" class="feedback-form">
+    <div class="form-group">
+      <label for="rating" class="text-purple">Rating:</label>
+      <input
+        type="number"
+        id="rating"
+        class="form-control rating-input"
+        name="rating"
+        [(ngModel)]="feedback.rating"
+        required
+        min="1"
+        max="5"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="comment" class="text-blue">Comment:</label>
+      <textarea
+        id="comment"
+        class="form-control comment-input"
+        name="comment"
+        [(ngModel)]="feedback.comment"
+        required
+        rows="4"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="feedbackDate" class="text-green">Feedback Date:</label>
+      <input
+        type="date"
+        id="feedbackDate"
+        class="form-control date-input"
+        name="feedbackDate"
+        [(ngModel)]="feedback.feedbackDate"
+        required
+      />
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary btn-lg">
+        Update Feedback
+      </button>
+    </div>
+  </form>
+</div>

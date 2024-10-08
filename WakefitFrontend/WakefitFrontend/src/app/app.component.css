@@ -1,0 +1,95 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://img.freepik.com/free-photo/modern-styled-entryway_23-2150695975.jpg?ga=GA1.1.1336599627.1716147389&semt=ais_hybrid');
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    color: #FFFFFF;
+}
+
+app-header {
+    color: #FF5722;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(255, 87, 34, 0.2);
+    box-sizing: border-box;
+}
+
+app-header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+app-header .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+app-header .menu li {
+    display: inline;
+}
+
+app-header .menu a {
+    color: #FFEB3B;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+app-header .menu a:hover {
+    text-decoration: underline;
+}
+
+app-hero-carousel {
+    margin-top: 70px;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+router-outlet {
+    display: block;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    app-header {
+        padding: 10px 0;
+    }
+
+    app-hero-carousel {
+        margin-top: 60px;
+    }
+
+    router-outlet {
+        padding: 15px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    app-header {
+        padding: 8px 0;
+    }
+
+    app-hero-carousel {
+        margin-top: 50px;
+    }
+
+    router-outlet {
+        padding: 10px;
+        max-width: 100%;
+    }
+}

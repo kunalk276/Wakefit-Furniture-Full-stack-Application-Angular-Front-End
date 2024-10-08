@@ -1,0 +1,66 @@
+.product-image-thumbnail {
+    width: 80px; 
+    height: auto;
+    object-fit: cover; 
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 0;
+  }
+  
+  .product-footer .price {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .product-footer .btn-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .product-footer .btn-group .btn {
+    margin: 0;
+  }
+  
+  .product-footer .btn-primary {
+    background-color: #9417ab;
+    border: none;
+  }
+  
+  .product-footer .btn-primary:hover {
+    background-color: #12add8;
+  }
+  
+  .product-footer .btn-info {
+    background-color: #17a2b8;
+    border: none;
+  }
+  
+  .product-footer .btn-info:hover {
+    background-color: #123cc9;
+  }
+  
+  .product-footer .btn-danger {
+    background-color: #88cf0c;
+    border: none;
+  }
+  
+  .product-footer .btn-danger:hover {
+    background-color: #eb920c;
+  }
+ 
+  .image-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-container img {
+    height: 200px; /* Adjust this value to the desired height */
+    width: auto;   /* Maintain aspect ratio */
+    object-fit: cover; /* Optionally cover the area without distortion */
+    margin: 5px; /* Optional: Add spacing between images */
+}

@@ -1,0 +1,51 @@
+<div class="container">
+  <h2>Leave a Review</h2>
+  <form (ngSubmit)="onSubmit()" #feedbackForm="ngForm">
+    <div class="form-group">
+      <label for="rating">Rating:</label>
+      <input
+        type="number"
+        id="rating"
+        class="form-control"
+        name="rating"
+        [(ngModel)]="feedback.rating"
+        min="1"
+        max="5"
+        required
+        #rating="ngModel"
+        (input)="animateRating()"
+      />
+      <div *ngIf="rating.invalid && (rating.dirty || rating.touched)" class="invalid-feedback">
+        <div *ngIf="rating.errors?.['required']">Rating is required.</div>
+        <div *ngIf="rating.errors?.['min']">Rating must be at least 1.</div>
+        <div *ngIf="rating.errors?.['max']">Rating cannot exceed 5.</div>
+      </div>
+      <div *ngIf="rating.value > 5" class="warning-feedback">
+        Rating cannot exceed 5.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="comment">Comment:</label>
+      <textarea
+        id="comment"
+        class="form-control"
+        name="comment"
+        [(ngModel)]="feedback.comment"
+        required
+        #comment="ngModel"
+      ></textarea>
+      <div *ngIf="comment.invalid && (comment.dirty || comment.touched)" class="invalid-feedback">
+        <div *ngIf="comment.errors?.['required']">Comment is required.</div>
+      </div>
+    </div>
+
+    <input type="hidden" [(ngModel)]="feedback.feedbackDate" name="feedbackDate">
+    <input type="hidden" [(ngModel)]="feedback.productId" name="productId">
+
+    <button type="submit" class="btn btn-primary" [disabled]="feedbackForm.invalid">Submit Feedback</button>
+  </form>
+  <div class="text-center mt-4">
+    <a routerLink="/feedbacks" class="btn btn-secondary">View Previous</a>
+  </div>
+</div>

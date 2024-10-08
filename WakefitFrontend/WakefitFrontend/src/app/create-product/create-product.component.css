@@ -1,0 +1,108 @@
+/* Container styling */
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Form heading styling */
+.form-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ff6f61;
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #ff6f61, #d45d79);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Form styling */
+.product-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #ff6f61;
+    box-shadow: 0 0 0 0.2rem rgba(255, 105, 97, 0.25);
+}
+
+/* Button styling */
+.btn-primary {
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    margin: 10px 0;
+    text-transform: uppercase;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, #0056b3, #003d80);
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background: linear-gradient(90deg, #b6c309, #7e0790);
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    margin: 5px;
+    text-transform: uppercase;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(90deg, #62a7dc, #1114c4);
+    transform: scale(1.05);
+}
+
+.btn-success {
+    background: linear-gradient(90deg, #aacd0e, #148ba6);
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    margin: 10px 0;
+    text-transform: uppercase;
+}
+
+.btn-success:hover {
+    background: linear-gradient(90deg, #218838, #1e7e34);
+    transform: scale(1.05);
+}
+
+/* Text center alignment */
+.text-center {
+    text-align: center;
+}

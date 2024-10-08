@@ -1,0 +1,16 @@
+.category-details {
+  padding: 20px;
+}
+
+.category-details h2 {
+  margin-bottom: 20px;
+}
+
+.category-details p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.category-details strong {
+  font-weight: bold;
+}

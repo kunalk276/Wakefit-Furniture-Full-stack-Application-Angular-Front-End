@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+      
+      <title>Checkout Page</title>
+  </head>
+  <body>
+      <div class="checkout-page">
+          <h1>Checkout</h1>
+  
+          <div class="flash-message">
+              <marquee>
+                  <p class="blink">
+                      Apply coupon 
+                      <span class="discount-code" id="coupon-code" (click)="copyToClipboard('WAKEFIT27')"> 
+                          <b>"WAKEFIT27"</b>
+                      </span> 
+                      to get 10% off!
+                  </p>
+              </marquee>
+          </div>
+  
+          <div class="checkout-container row">
+              <div class="col-md-6">
+                  <h2>Select Payment Method</h2>
+                  <div class="payment-methods">
+                      <label class="payment-option">
+                          <input type="radio" name="paymentMethod" value="COD" (change)="onPaymentMethodChange($event)" required>
+                          <img src="https://image.shutterstock.com/image-vector/cash-on-delivery-cod-icon-260nw-2394506937.jpg" alt="Cash on Delivery" class="payment-icon">
+                          Cash on Delivery
+                      </label>
+                      <label class="payment-option">
+                          <input type="radio" name="paymentMethod" value="UPI" (change)="onPaymentMethodChange($event)" required>
+                          <img src="https://image.shutterstock.com/image-illustration/mobile-banking-simplified-upi-payments-260nw-2493991283.jpg" alt="UPI" class="payment-icon">
+                          UPI
+                      </label>
+                      <label class="payment-option">
+                          <input type="radio" name="paymentMethod" value="Card" (change)="onPaymentMethodChange($event)" required>
+                          <img src="https://img.freepik.com/premium-photo/credit-card-icon-payment-banking-art-logo-illustration_762678-16114.jpg" alt="Card Payment" class="payment-icon">
+                          Card
+                      </label>
+                  </div>
+  
+                  <div class="payment-details" *ngIf="selectedPaymentMethod === 'COD'">
+                    <h3>Cash on Delivery</h3>
+                    <p>Pay with cash upon delivery. No further details required.</p>
+                    
+                    <div *ngIf="isLoading" class="loading-overlay">
+                      <div class="spinner"></div>
+                      <p>Processing your order...</p>
+                    </div>
+                  
+                    <div *ngIf="orderConfirmationMessage" class="alert alert-success mt-3">
+                      {{ orderConfirmationMessage }}
+                    </div>
+                  </div>
+                  <div class="payment-details" *ngIf="selectedPaymentMethod === 'UPI'">
+                    <h3>UPI Payment Details</h3>
+                    <div class="upi-interface" [formGroup]="upiForm">
+                      <div class="form-group">
+                        <label for="upiId">UPI ID</label>
+                        <input type="text" id="upiId" class="form-control" placeholder="sbi@upi" formControlName="upiId" aria-label="Enter your UPI ID">
+                        <div *ngIf="upiForm?.get('upiId')?.invalid && (upiForm?.get('upiId')?.dirty || upiForm?.get('upiId')?.touched)">
+                          <div *ngIf="upiForm?.get('upiId')?.errors?.['required']" class="alert alert-danger">UPI ID is required.</div>
+                          <div *ngIf="upiForm?.get('upiId')?.errors?.['pattern']" class="alert alert-danger">Invalid UPI ID format.</div>
+                        </div>
+                      </div>
+                      
+                      <div class="upi-info">
+                        <p>To complete your payment, please enter your UPI ID above.</p>
+                        <img src="https://image.shutterstock.com/image-illustration/mobile-banking-simplified-upi-payments-260nw-2493991283.jpg" alt="UPI Logo" class="upi-logo">
+                      </div>
+                      
+                      <button class="btn btn-success mt-3" (click)="processPayment()" [disabled]="upiForm.invalid">Pay via UPI</button>
+                    </div>
+                  </div>
+  
+                  <div class="payment-details" *ngIf="selectedPaymentMethod === 'Card'">
+                    <h3>Card Payment Details</h3>
+                    
+                    <form [formGroup]="cardForm">
+                      <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" class="form-control" placeholder="1234 5678 9012 3456" formControlName="cardNumber" required>
+                        <div *ngIf="cardForm.get('cardNumber')?.invalid && (cardForm.get('cardNumber')?.dirty || cardForm.get('cardNumber')?.touched)">
+                          <div *ngIf="cardForm.get('cardNumber')?.errors?.['required']" class="alert alert-danger">Card number is required.</div>
+                          <div *ngIf="cardForm.get('cardNumber')?.errors?.['pattern']" class="alert alert-danger">Card number must be 16 digits.</div>
+                        </div>
+                      </div>
+                  
+                      <div class="form-group">
+                        <label for="expiryDate">Expiry Date (MM/YY)</label>
+                        <input type="text" id="expiryDate" class="form-control" placeholder="MM/YY" formControlName="expiryDate" required>
+                        <div *ngIf="cardForm.get('expiryDate')?.invalid && (cardForm.get('expiryDate')?.dirty || cardForm.get('expiryDate')?.touched)">
+                          <div *ngIf="cardForm.get('expiryDate')?.errors?.['required']" class="alert alert-danger">Expiry date is required.</div>
+                          <div *ngIf="cardForm.get('expiryDate')?.errors?.['pattern']" class="alert alert-danger">Invalid expiry date format.</div>
+                        </div>
+                      </div>
+                  
+                      <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" class="form-control" placeholder="123" formControlName="cvv" required>
+                        <div *ngIf="cardForm.get('cvv')?.invalid && (cardForm.get('cvv')?.dirty || cardForm.get('cvv')?.touched)">
+                          <div *ngIf="cardForm.get('cvv')?.errors?.['required']" class="alert alert-danger">CVV is required.</div>
+                          <div *ngIf="cardForm.get('cvv')?.errors?.['pattern']" class="alert alert-danger">CVV must be 3 digits.</div>
+                        </div>
+                      </div>
+                  
+                      <button class="btn btn-success" (click)="processPayment()" [disabled]="cardForm.invalid">Pay via Card</button>
+                    </form>
+                  </div>
+                  <div class="security-message">
+                      <p>Your payment information is secure and will not be shared with third parties.</p>
+                  </div>
+              </div>
+  
+              <div class="col-md-6 summary">
+                  <h3>Order Summary</h3>
+                  <ul class="order-items list-unstyled">
+                      <li><span>Subtotal:</span><span>{{ totalPrice | currency:'INR':'symbol':'1.0-0' }}</span></li>
+                      <li><span>Tax:</span><span>{{ tax | currency:'INR':'symbol':'1.0-0' }}</span></li>
+                      <li><span>Delivery:</span><span>{{ delivery | currency:'INR':'symbol':'1.0-0' }}</span></li>
+                      <li><span>Discount:</span><span>{{ discount | currency:'INR':'symbol':'1.0-0' }}</span></li>
+                      <li><span>Total Price:</span><h4>{{ finalPrice | currency:'INR':'symbol':'1.0-0' }}</h4></li>
+                  </ul>
+                  <div class="form-group">
+  <label for="discountCode" class="form-label">Discount Code:</label>
+  <div class="input-group">
+    <input type="text" id="discountCode" class="form-control" [(ngModel)]="discountCode" placeholder="Enter discount code">
+    <button (click)="applyDiscount()" class="btn btn-secondary">Apply</button>
+  </div>
+  <button (click)="openAddressModal()" class="btn btn-success mt-3">Add Address</button>
+</div>
+              </div>
+          </div>
+  
+         <!-- Address Modal -->
+<div class="modal" [class.show]="isAddressModalOpen" tabindex="-1" role="dialog" [style.display]="isAddressModalOpen ? 'block' : 'none'">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add/Edit Address</h5>
+        <button type="button" class="close" (click)="closeAddressModal()">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit()" #addressForm="ngForm">
+          <div class="form-group">
+            <label for="landmark">Landmark:</label>
+            <input type="text" id="landmark" class="form-control" name="landmark" [(ngModel)]="address.landmark" placeholder="e.g., Near hospital" required />
+            <div *ngIf="addressForm.controls['landmark']?.invalid && (addressForm.controls['landmark']?.touched || addressForm.controls['landmark']?.dirty)" class="text-danger">
+              <small *ngIf="addressForm.controls['landmark']?.errors?.['required']">Landmark is required.</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea id="address" class="form-control" name="address" [(ngModel)]="address.address" placeholder="House number, Street" required></textarea>
+            <div *ngIf="addressForm.controls['address']?.invalid && (addressForm.controls['address']?.touched || addressForm.controls['address']?.dirty)" class="text-danger">
+              <small *ngIf="addressForm.controls['address']?.errors?.['required']">Address is required.</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="state">State:</label>
+            <select id="state" class="form-control" name="state" [(ngModel)]="selectedState" (change)="onStateChange($event)" required>
+              <option *ngFor="let state of states" [value]="state.code">{{ state.name }}</option>
+            </select>
+            <div *ngIf="addressForm.controls['state']?.invalid && (addressForm.controls['state']?.touched || addressForm.controls['state']?.dirty)" class="text-danger">
+              <small *ngIf="addressForm.controls['state']?.errors?.['required']">State is required.</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="city">City:</label>
+            <select id="city" class="form-control" name="city" [(ngModel)]="address.city" (change)="onCityChange($event)" required>
+              <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+            </select>
+            <div *ngIf="addressForm.controls['city']?.invalid && (addressForm.controls['city']?.touched || addressForm.controls['city']?.dirty)" class="text-danger">
+              <small *ngIf="addressForm.controls['city']?.errors?.['required']">City is required.</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="pincode">Pincode:</label>
+            <input type="text" id="pincode" class="form-control" name="pincode" [(ngModel)]="address.pincode" placeholder="e.g., 10001" required maxlength="6" pattern="\d{6}" title="Pincode must be 6 digits" readonly />
+            <div *ngIf="addressForm.controls['pincode']?.invalid && (addressForm.controls['pincode']?.touched || addressForm.controls['pincode']?.dirty)" class="text-danger">
+              <small *ngIf="addressForm.controls['pincode']?.errors?.['required']">Pincode is required.</small>
+              <small *ngIf="addressForm.controls['pincode']?.errors?.['pattern']">Pincode must be 6 digits.</small>
+            </div>
+          </div>
+                    <button type="submit" class="btn btn-success" [disabled]="addressForm.invalid">Save Address</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  
+          <!-- Payment Modal -->
+<div class="modal" [class.show]="isPaymentModalOpen" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Payment Details</h5>
+        <button type="button" class="close" (click)="closePaymentModal()">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="processPayment()" #paymentForm="ngForm">
+          <!-- Card Number -->
+          <div class="form-group">
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" class="form-control" name="cardNumber" 
+                   [(ngModel)]="payment.cardNumber" placeholder="1234 5678 9012 3456" 
+                   required maxlength="19" 
+                   pattern="^(?:\d{4}\s?){3}\d{4}$">
+            <div *ngIf="paymentForm.controls['cardNumber']?.invalid && (paymentForm.controls['cardNumber']?.dirty || paymentForm.controls['cardNumber']?.touched)">
+              <div *ngIf="paymentForm.controls['cardNumber']?.errors?.['required']" class="alert alert-danger">Card number is required.</div>
+              <div *ngIf="paymentForm.controls['cardNumber']?.errors?.['pattern']" class="alert alert-danger">Card number must be 16 digits.</div>
+            </div>
+          </div>
+
+          <!-- Expiry Date -->
+          <div class="form-group">
+            <label for="expiryDate">Expiry Date (MM/YY):</label>
+            <input type="text" id="expiryDate" class="form-control" name="expiryDate" [(ngModel)]="payment.expiryDate" placeholder="MM/YY" required pattern="^(0[1-9]|1[0-2])\/\d{2}$">
+            <div *ngIf="paymentForm.controls['expiryDate']?.invalid && (paymentForm.controls['expiryDate']?.dirty || paymentForm.controls['expiryDate']?.touched)">
+              <div *ngIf="paymentForm.controls['expiryDate']?.errors?.['required']" class="alert alert-danger">Expiry date is required.</div>
+              <div *ngIf="paymentForm.controls['expiryDate']?.errors?.['pattern']" class="alert alert-danger">Invalid expiry date format.</div>
+            </div>
+          </div>
+
+          <!-- CVV -->
+          <div class="form-group">
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" class="form-control" name="cvv" [(ngModel)]="payment.cvv" placeholder="123" required pattern="^\d{3}$">
+            <div *ngIf="paymentForm.controls['cvv']?.invalid && (paymentForm.controls['cvv']?.dirty || paymentForm.controls['cvv']?.touched)">
+              <div *ngIf="paymentForm.controls['cvv']?.errors?.['required']" class="alert alert-danger">CVV is required.</div>
+              <div *ngIf="paymentForm.controls['cvv']?.errors?.['pattern']" class="alert alert-danger">CVV must be 3 digits.</div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-success">Complete Payment</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div class="modal" [class.show]="isOrderConfirmationOpen" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title">Order Confirmation</h5>
+                          <button type="button" class="close" (click)="closeOrderConfirmation()">
+                              <span>&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                          <p>Thank you for your order! Your order number is <strong>{{ orderNumber }}</strong>.</p>
+                          <p>You will receive an email with your order details shortly.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+  </html>

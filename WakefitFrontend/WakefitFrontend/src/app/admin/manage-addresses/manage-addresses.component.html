@@ -1,0 +1,49 @@
+<div class="container">
+    <h2 class="text-center mb-4">Manage Addresses</h2>
+    
+    <!-- Navigation Links -->
+    <div class="mb-3">
+      <a routerLink="/create-address" routerLinkActive="active" class="btn btn-outline-secondary mr-2">Add Address</a>
+      <a routerLink="/update-address" routerLinkActive="active" class="btn btn-outline-info mr-2">Update Address</a>
+      <a routerLink="/delete-address" routerLinkActive="active" class="btn btn-outline-danger">Delete Address</a>
+    </div>
+  
+    <!-- Addresses Table -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Landmark</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Pincode</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let address of addresses">
+          <td>{{ address.addressId }}</td>
+          <td>{{ address.landmark }}</td>
+          <td>{{ address.address }}</td>
+          <td>{{ address.city }}</td>
+          <td>{{ address.state }}</td>
+          <td>{{ address.pincode }}</td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-info" (click)="addressDetails(address.addressId)">Details</button>
+              <button class="btn btn-primary" (click)="updateAddress(address.addressId)">Update</button>
+              <button class="btn btn-danger" (click)="deleteAddress(address.addressId)">Delete</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Navigation Buttons -->
+    <div class="text-center mt-4">
+      <a routerLink="/home" class="btn btn-secondary">Return to Home</a>
+      <a routerLink="/manage-products" class="btn btn-secondary">View All Products</a>
+    </div>
+  </div>
+  

@@ -1,0 +1,16 @@
+
+<section class="py-3 md:pb-3 md:pt-2">
+  <h4 class="font-display text-xl font-semibold leading-6 md:text-[5rem] pb-3 pl-2.5 pt-1 md:pb-8 md:pl-0 md:pt-6 md:text-center">
+    Shop By Products
+  </h4>
+  <div class="container grid grid-cols-3 gap-2 md:grid-cols-6 md:gap-4">
+    <div *ngFor="let product of products" (click)="viewProduct(product.productId!)" class="product-card">
+      <div class="product-image-wrapper">
+        <img [src]="product.images" alt="Product Image" class="product-image">
+      </div>
+      <div class="product-details">
+        <h2>{{ product.name }}</h2>
+      </div>
+    </div>
+  </div>
+</section>

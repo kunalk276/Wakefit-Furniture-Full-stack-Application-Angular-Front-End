@@ -1,0 +1,38 @@
+<!-- update-user.component.html -->
+<div class="container">
+    <h2>Update User</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">userName:</label>
+        <input type="text" id="userName" class="form-control" name="userName" [(ngModel)]="user.userName" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" class="form-control" name="email" [(ngModel)]="user.email" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" class="form-control" name="firstName" [(ngModel)]="user.firstName" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" class="form-control" name="lastName" [(ngModel)]="user.lastName" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="mobNo">Mobile Number:</label>
+        <input type="text" id="mobNo" class="form-control" name="mobNo" [(ngModel)]="user.mobNo" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="role">Role:</label>
+        <input type="text" id="role" class="form-control" name="role" [(ngModel)]="user.role" required />
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Update User</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand d-flex align-items-center logo-container" routerLink="/home">
+        <div class="logo-image-wrapper">
+            <img class="logo-image front" src="https://ik.imagekit.io/2xkwa8s1i/img/wakefit-logo-2023.png" alt="Front Logo" />
+            <img class="logo-image back" src="https://media.licdn.com/dms/image/D4D03AQETb0F4U8_wmQ/profile-displayphoto-shrink_400_400/0/1718685917105?e=1728518400&v=beta&t=IdMzHwgMk5hZvq-w0AHBDbDV-TpwyRBNPYAyffIAuTg" alt="Back Logo" />
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a routerLink="/viewproduct" routerLinkActive="active" class="nav-link">Explore Products</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategories" role="button" aria-haspopup="true" aria-expanded="false">Browse Categories</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownCategories">
+                    <a *ngFor="let category of categories" [routerLink]="'/category-products/' + category.categoryId" class="dropdown-item">
+                        {{ category.name }}
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/feedbacks" routerLinkActive="active" class="nav-link">Feedback</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/addresses" routerLinkActive="active" class="nav-link">Address</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdmin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-user-circle"></i> Admin
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
+                  <a routerLink="/dashboard" routerLinkActive="active" class="dropdown-item">Dashboard</a>
+                 
+                </div>
+              </li>
+        </ul>
+        <form (ngSubmit)="onSearch()" class="search-form">
+            <div class="input-group">
+              <input [(ngModel)]="searchTerm" name="search" class="form-control search-input" type="search" placeholder="Search your Favorite" aria-label="Search">
+              <button class="btn search-icon-btn" type="submit">
+                <i class="fas fa-search"></i> Search
+              </button>
+            </div>
+          </form>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a routerLink="/contact-us" class="nav-link contact-link">
+                  <i class="fas fa-phone-alt"></i> 
+                  <span class="contact-text"></span>
+                </a>
+              </li>
+            <li class="nav-item">
+                <a routerLink="/cart" routerLinkActive="active" class="nav-link cart-link">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="badge badge-pill badge-primary cart-badge"></span>
+                </a>
+            </li>
+        <li class="nav-item">
+        <a routerLink="/login" routerLinkActive="active" class="nav-link login-link">
+            <i class="fa fa-sign-in-alt"></i> 
+        </a>
+
+
+    </li>
+           
+            
+        </ul>
+    </div>
+</nav>

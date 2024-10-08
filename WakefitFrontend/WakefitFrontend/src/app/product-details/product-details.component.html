@@ -1,0 +1,83 @@
+<div class="container py-5">
+  <h3 class="text-center mb-4 custom-heading">View Furniture Details</h3>
+  <div class="row">
+    
+    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+      <div class="border rounded-4 mb-3">
+        <a [attr.href]="product.images" data-fslightbox="furniture-gallery" class="rounded-4" target="_blank" data-type="image">
+          <img class="rounded-4 fit img-fluid" [src]="product.images" alt="Furniture Image" />
+        </a>
+      </div>
+    </div>
+
+    
+    <div class="col-lg-6">
+      <h4 class="product-name">{{ product.name }}</h4>
+      <div class="d-flex flex-row my-3 align-items-center">
+        <div class="text-warning mb-1 me-2">
+          <i class="fa fa-star" *ngFor="let star of stars"></i>
+          <i class="fas fa-star-half-alt" *ngIf="product.rating % 1 !== 0"></i>
+          <span class="ms-1">{{ product.rating }}</span>
+        </div>
+        <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i> {{ product.orders }} orders</span>
+        <span class="ms-2 text-success stock-status" *ngIf="product.stockQuantity">
+          <i class="fas fa-check"></i> In stock
+        </span>
+        <span class="ms-2 text-danger stock-status" *ngIf="!product.stockQuantity">
+          <i class="fas fa-times"></i> Out of stock
+        </span>
+        
+      </div>
+
+      <div class="mb-3">
+        <span class="h5">{{ product.price | currency:'INR':'symbol':'1.0-0' }}</span>
+        <span class="text-muted">/ per unit</span>
+      </div>
+
+      <p class="product-description">
+        {{ product.description }}
+      </p>
+
+      <div class="row mb-4">
+        <div class="col-md-4 col-6">
+          <label class="mb-2">Quantity:</label>
+          <div class="input-group quantity-wrapper mb-3" style="width: 170px;">
+            <button class="btn quantity-btn decrease-btn" type="button" (click)="decreaseQuantity()">
+              <i class="fas fa-minus"></i>
+            </button>
+            <input type="text" class="form-control text-center quantity-input" [(ngModel)]="quantity" aria-label="Quantity" />
+            <button class="btn quantity-btn increase-btn" type="button" (click)="increaseQuantity()">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="row">
+        <div class="col-md-6 col-sm-12 mb-2">
+          <a [routerLink]="['/create-feedback', product.productId]" class="btn btn-warning shadow-0 w-100">
+            <i class="fas fa-comment-dots me-2"></i>Provide Feedback
+          </a>
+        </div>
+        <div class="col-md-6 col-sm-12 mb-2">
+          <button [disabled]="!product.stockQuantity" class="btn btn-primary shadow-0 w-100" (click)="addToCart()">
+            <i class="fas fa-shopping-basket me-2"></i>Add to cart
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-12 mb-2">
+          <a [routerLink]="['/viewproduct']" class="btn btn-view-products shadow-0 w-100">
+            <i class="fas fa-arrow-left me-2"></i>View Products
+          </a>
+        </div>
+        <div class="col-md-6 col-sm-12 mb-2">
+          <a (click)="viewFeedbacks()" class="btn btn-view-feedbacks shadow-0 w-100">
+            <i class="fas fa-comment-dots me-2"></i>View Feedbacks
+          </a>
+        </div>
+      </div>
+  </div>
+</div>

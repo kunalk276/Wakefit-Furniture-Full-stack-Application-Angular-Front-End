@@ -1,0 +1,129 @@
+<div class="contact-us-container">
+  <h2>Contact Us</h2>
+
+  <div class="contact-info">
+    <h3>Come, meet us!</h3>
+    <p class="horizontal-address">
+      Manufactured, Packed & Marketed By: 
+      <strong>Wakefit Pvt Ltd</strong>, 
+      Address: 123, SKY Complex, 
+      Near Tech Park, 
+      Sector 17, Chinchwad, 
+      Maharashtra 411033, 
+      India.
+    </p>
+    <img src="https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129804.jpg?t=st=1725890264~exp=1725893864~hmac=ed98e83ef555f6679be0d6dd94a2fd43bec749edb0547f986afe484de35ed249&w=900" alt="Our Office" class="contact-image">
+  </div>
+
+  <div class="chat-info">
+    <h3>Chat with us</h3>
+    <p>
+      Experience our new chatbot for the resolution of your queries.
+    </p>
+    <img src="https://img.freepik.com/free-vector/cute-bot-say-users-hello-chatbot-greets-online-consultation_80328-195.jpg?t=st=1725952979~exp=1725956579~hmac=4007aa1ce018f96e2af78a6a4a6f4d672f784cf70cab607746a5f61e0add239c&w=740" 
+    alt="Chatbot" 
+
+    class="chat-image" 
+    style="width: 400px; height: auto;">
+
+  </div>
+
+  <div class="contact-form">
+    <h3>Want to connect with us for something else?</h3>
+    <p>Message us here and we’ll get back to you soon!</p>
+
+    
+    <div *ngIf="submissionSuccess" class="success-message">
+      <p>Email sent successfully! 🎉</p>
+    </div>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <!-- Name Field -->
+      <div class="form-group">
+        <label for="name">Enter Name:</label>
+        <input type="text" id="name" formControlName="name" required placeholder="Your Name" class="form-control" />
+        <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="text-danger">
+          <small *ngIf="contactForm.get('name')?.errors?.['required']">Name is required.</small>
+        </div>
+      </div>
+    
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          formControlName="email"
+          required
+          placeholder="Enter your Gmail address"
+        />
+        <div *ngIf="contactForm.get('email')?.invalid && (contactForm.get('email')?.dirty || contactForm.get('email')?.touched)" class="text-danger">
+          <div *ngIf="contactForm.get('email')?.errors?.['required']">Email is required.</div>
+          <div *ngIf="contactForm.get('email')?.errors?.['pattern']">
+            Please enter a valid Gmail address (e.g., user&#64;gmail.com).
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mobile">Enter Mobile Number:</label>
+        <input
+          type="tel"
+          id="mobile"
+          formControlName="mobile"
+          class="form-control"
+          required
+          pattern="^[0-9]{10}$"
+          inputmode="numeric"
+          maxlength="10"
+          (keypress)="validateNumber($event)"
+          placeholder="Enter your 10-digit mobile number"
+        />
+        <div *ngIf="contactForm.get('mobile')?.invalid && contactForm.get('mobile')?.touched">
+          <small *ngIf="contactForm.get('mobile')?.errors?.['required']">Mobile number is required.</small>
+          <small *ngIf="contactForm.get('mobile')?.errors?.['pattern']">Mobile number must be 10 digits.</small>
+        </div>
+      </div>
+    
+    
+      <div class="form-group">
+        <label for="category">Select Category:</label>
+        <select id="category" formControlName="category" required class="form-control">
+          <option value="">Select a category</option>
+          <option value="placing-order">Placing a new order</option>
+          <option value="order-modification">Order modification</option>
+          <option value="delivery-info">Delivery related information</option>
+          <option value="product-issue">Issue with / information about delivered products</option>
+          <option value="return-replacement">Return & replacement</option>
+          <option value="order-cancellation">Order cancellation</option>
+          <option value="others">Others</option>
+        </select>
+        <div *ngIf="contactForm.get('category')?.invalid && contactForm.get('category')?.touched" class="text-danger">
+          <small *ngIf="contactForm.get('category')?.errors?.['required']">Category is required.</small>
+        </div>
+      </div>
+    
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" formControlName="description" required placeholder="Enter your message here..." class="form-control"></textarea>
+        <div *ngIf="contactForm.get('description')?.invalid && contactForm.get('description')?.touched" class="text-danger">
+          <small *ngIf="contactForm.get('description')?.errors?.['required']">Description is required.</small>
+        </div>
+      </div>
+    
+      
+      <div class="form-group">
+        <label for="file">Click or drag file to this area to upload</label>
+        <input type="file" id="file" formControlName="file" multiple accept="image/*,video/*,application/pdf" class="form-control-file" />
+      </div>
+    
+      
+      <button type="submit" [disabled]="contactForm.invalid" class="btn btn-primary mt-3">Submit</button>
+    </form>
+    
+   
+    <div *ngIf="submissionSuccess" class="alert alert-success mt-3">
+      <p>Your form has been submitted successfully!</p>
+    </div>
+    

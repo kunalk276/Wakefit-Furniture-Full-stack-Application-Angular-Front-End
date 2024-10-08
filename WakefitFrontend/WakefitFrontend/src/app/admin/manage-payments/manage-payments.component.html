@@ -1,0 +1,31 @@
+
+<h2 class="table-header">Manage Payments</h2>
+
+<table class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th>Payment ID</th>
+        <th>Order ID</th>
+        <th>Payment Date</th>
+        <th>Amount</th>
+        <th>Payment Method</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let payment of payments">
+        <td>{{ payment.paymentId }}</td>
+        <td>{{ payment.order.orderId }}</td>
+        <td>{{ payment.paymentDate | date:'short' }}</td>
+        <td>{{ payment.amount | currency:'INR':'symbol':'1.0-0' }}</td>
+        <td>{{ payment.paymentMethod }}</td>
+        <td>{{ payment.paymentStatus }}</td>
+        <td>
+          <button class="btn btn-info mr-2" (click)="viewDetails(payment.paymentId)">Details</button>
+          <button class="btn btn-primary mr-2" (click)="updateStatus(payment.paymentId)">Update Status</button>
+          <button class="btn btn-danger" (click)="deletePayment(payment.paymentId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,32 @@
+.create-category {
+    padding: 20px;
+  }
+  
+  .create-category h2 {
+    margin-bottom: 20px;
+  }
+  
+  .create-category form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .create-category label {
+    margin: 10px 0 5px;
+  }
+  
+  .create-category input, 
+  .create-category textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .create-category button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  

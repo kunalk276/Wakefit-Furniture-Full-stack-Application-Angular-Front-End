@@ -1,0 +1,120 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h3.text-center {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #d2770f;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  position: relative;
+  text-align: center;
+}
+
+h3.text-center::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6f61, #ff8a65);
+  border-radius: 2px;
+}
+
+h3.text-center::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -18px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: #ff6f61;
+  border-radius: 50%;
+}
+
+.feedback-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-details {
+  margin-top: 10px;
+}
+
+.feedback-details .rating-head {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #d2770f;
+  margin-bottom: 10px;
+}
+
+.feedback-details p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+.feedback-details .fas.fa-star {
+  color: #ccc;
+  margin-right: 5px;
+  font-size: 1.5rem;
+}
+
+.feedback-details .fas.fa-star.filled {
+  color: #ffd700;
+}
+
+.feedback-details .feedback-comment {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #ff5733; /* Red color */
+  margin-top: 10px;
+}
+
+.feedback-details .feedback-date {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #17a2b8; /* Teal color */
+  margin-top: 5px;
+}
+
+.feedback-details img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-center {
+  margin-top: 20px;
+}
+
+.text-center .btn-secondary {
+  background-color: #6c757d;
+  border: none;
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  transition: background-color 0.3s;
+  border-radius: 5px;
+}
+
+.text-center .btn-secondary:hover {
+  background-color: #5a6268;
+  cursor: pointer;
+}
