@@ -1,4 +1,4 @@
-# Wakefit Furniture E-commerce - Frontend
+# Wakefit Furniture E-commerce -ANGULAR Frontend
 
 This is the frontend of the Wakefit Furniture E-commerce project, developed using Angular. It provides users with the ability to explore furniture products, register, log in, view profiles, and manage their shopping experience.
 
