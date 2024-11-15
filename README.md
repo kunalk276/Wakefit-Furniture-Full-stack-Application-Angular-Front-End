@@ -5,7 +5,7 @@ This is the frontend of the Wakefit Furniture E-commerce project, developed usin
 ## Screenshots
 ![image](https://github.com/user-attachments/assets/a1af6d8d-c1b8-41b2-9007-40e1c53edf7f)
 
-![Homepage](path_to_your_screenshot/homepage.png)
+![Homepage]((https://github.com/user-attachments/assets/a1af6d8d-c1b8-41b2-9007-40e1c53edf7f))
 *Homepage showcasing featured products and categories.*
 
 ![Product Listing](path_to_your_screenshot/product_listing.png)
