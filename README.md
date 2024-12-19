@@ -3,7 +3,7 @@
 This is the frontend of the Wakefit Furniture E-commerce project, developed using Angular. It provides users with the ability to explore furniture products, register, log in, view profiles, and manage their shopping experience.
 
 ## Screenshots
-![image](https://github.com/user-attachments/assets/a1af6d8d-c1b8-41b2-9007-40e1c53edf7f)
+
 
 ![Screenshot 2024-12-19 192506](https://github.com/user-attachments/assets/db5bdc35-d944-43bc-a2c9-4eafa4a5c037)
 
